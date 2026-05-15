@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://balance-db:5432/balance-db
+    username: postgres
+    password: postgres
+  jpa:
+    hibernate:
+      ddl-auto: update
+axon:
+  axonserver:
+    servers: axonserver:8124

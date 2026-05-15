@@ -9,18 +9,18 @@ import org.springframework.stereotype.Service;
 @Service
 public class EventConsumerListener {
 
-   private final NotificationService notificationService;
+    private final NotificationService notificationService;
 
-   @Autowired
-   public EventConsumerListener(
-           NotificationService notificationService
-   ) {
-      this.notificationService = notificationService;
-   }
+    @Autowired
+    public EventConsumerListener(
+        NotificationService notificationService
+    ) {
+        this.notificationService = notificationService;
+    }
 
-   @RabbitListener(queues = "user.events")
-   public void handleUserEvent(UserCreatedEvent event) {
-      notificationService.sendNotification(event);
-   }
+    @RabbitListener(queues = "user.events")
+    public void handleUserEvent(UserCreatedEvent event) {
+        notificationService.sendNotification(event);
+    }
 
 }
